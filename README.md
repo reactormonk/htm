@@ -15,10 +15,7 @@
 ## Getting started
 
 * Clone this repository
-* Run `sbt eclipse` to generate Eclipse project files for all the components
-* Import all projects into Eclipse
-* In Eclipse, run src/test/scala/Run<Admin|BattleStation>.scala to start an application
-* Open application in a browser using localhost:<port> where port is 8079 for Admin, 8080 for Viewer
+* Run `sbt container:start`
 
 ## OSX
 

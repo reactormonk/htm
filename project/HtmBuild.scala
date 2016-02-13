@@ -3,7 +3,6 @@ import sbt.Keys._
 import com.earldouglas.xsbtwebplugin.WebPlugin._
 import com.typesafe.sbt.SbtScalariform._
 import com.earldouglas.xsbtwebplugin.PluginKeys._
-import com.typesafe.sbteclipse.plugin.EclipsePlugin._
 
 object HtmBuild extends Build {
 	import Dependencies._
@@ -13,7 +12,7 @@ object HtmBuild extends Build {
 		name := buildName + "-Admin",
 		port in container.Configuration := 8079,
 		libraryDependencies ++= Seq(
-               "org.eclipse.jetty" % "jetty-webapp" % "8.0.4.v20111024" % "container",
+               "org.mortbay.jetty" % "jetty" % "6.1.26" % "container",
                "javax.servlet" % "servlet-api" % "2.5" % "provided->default",
                "net.liftweb" %% "lift-webkit" % liftVersion % "compile",
                "net.liftweb" %% "lift-mapper" % liftVersion % "compile",
@@ -87,9 +86,8 @@ object BuildSettings {
       "Sonatype OSS Public" at "https://oss.sonatype.org/content/groups/public/"),
     autoScalaLibrary := true,
     offline := false,
-    javaOptions := Seq("-Djava.awt.headless=true"),
-    EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource,
-	EclipseKeys.withSource := true)
+    javaOptions := Seq("-Djava.awt.headless=true")
+	)
 }
 
 object Format {
